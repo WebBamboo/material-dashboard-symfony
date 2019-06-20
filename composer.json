@@ -1,0 +1,19 @@
+{
+    "name": "webbamboo/material-dashboard-symfony",
+    "description": "Material Dashboard Bundle for Symfony based on Material Dashboard by Creative Tim",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Petrov",
+            "email": "contact@webbamboo.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Webbamboo\\MaterialDashboard\\": ""
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{% if additionalFooterIconClass is not defined %}{% set additionalFooterIconClass = '' %}{% endif %}
+{% if type is not defined %}{% set type = 'info' %}{% endif %}
+{% if icon is not defined %}{% set icon = '' %}{% endif %}
+{% if fa_icon is not defined %}{% set fa_icon = '' %}{% endif %}
+{% if graphType is not defined %}{% set graphType = 'line' %}{% endif %}
+{% if graphOptions is not defined %}{% set graphOptions = null %}{% endif %}
+
+<div class="card card-chart">
+    <div class="card-header card-header-{{ type }}">
+        <!-- Graph -->
+        {{ materialGraph(data, graphType, graphOptions).renderChart()|raw }}
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">
+            {{ title }}
+        </h4>
+        <p class="card-category">{{ category|raw }}</p>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <i class="material-icons{{ additionalFooterIconClass|length > 0 ? ' ' ~ additionalFooterIconClass : '' }}">{{ footer_icon }}</i>
+            {{ footer_content|raw }}
+        </div>
+    </div>
+</div>

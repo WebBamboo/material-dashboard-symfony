@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header {{ headerStyle }}">
+        {% if title %}<h4 class="card-title">{{ title }}</h4>{% endif %}
+        {% if subtitle %}<p class="card-category">{{ subtitle }}</p>{% endif %}
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table table-hover">
+            {% if th is not empty %}
+            <thead class="text-warning">
+                <tr>
+                    {% for content in th %}
+                    <th>{{ content }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            {% endif %}
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for entry in row %}
+                    <td>{{ entry }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

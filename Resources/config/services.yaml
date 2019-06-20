@@ -1,0 +1,3 @@
+services:
+    material_dashboard.config:
+        class: App\Webbamboo\MaterialDashboard\Services\ConfigService

@@ -1,0 +1,25 @@
+{% if additionalFooterIconClass is not defined %}{% set additionalFooterIconClass = '' %}{% endif %}
+{% if type is not defined %}{% set type = 'info' %}{% endif %}
+{% if small is not defined %}{% set small = '' %}{% endif %}
+{% if icon is not defined %}{% set icon = '' %}{% endif %}
+{% if fa_icon is not defined %}{% set fa_icon = '' %}{% endif %}
+
+<div class="card card-stats">
+    <div class="card-header card-header-{{ type }} card-header-icon">
+        <div class="card-icon">
+            {% if icon|length > 0 %}<i class="material-icons">{{ icon }}</i>{% endif %}
+            {% if fa_icon|length > 0 %}<i class="fa fa-{{ fa_icon }}"></i>{% endif %}
+        </div>
+        <p class="card-category">{{ category }}</p>
+        <h3 class="card-title">
+            {{ title }}
+            {% if small|length > 0 %}<small>{{ small }}</small>{% endif %}
+        </h3>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <i class="material-icons{{ additionalFooterIconClass|length > 0 ? ' ' ~ additionalFooterIconClass : '' }}">{{ footer_icon }}</i>
+            {{ footer_content|raw }}
+        </div>
+    </div>
+</div>

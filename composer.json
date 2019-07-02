@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "symfony/asset": "~4.2"
+        "symfony/asset": "~4.2",
+        "twig/twig": "~1.40|~2.9"
     },
     "autoload": {
         "psr-4": {

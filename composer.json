@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "symfony/asset": "4.2.*"
+    },
     "autoload": {
         "psr-4": {
             "Webbamboo\\MaterialDashboard\\": ""

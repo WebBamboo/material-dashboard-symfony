@@ -4,10 +4,10 @@ namespace Webbamboo\MaterialDashboard\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use App\Webbamboo\MaterialDashboard\Services\ConfigService;
+use Webbamboo\MaterialDashboard\Services\ConfigService;
 use Symfony\Component\Routing\RouterInterface;
-use App\Webbamboo\MaterialDashboard\Library\GraphWidget;
-use App\Webbamboo\MaterialDashboard\Library\TableHelper;
+use Webbamboo\MaterialDashboard\Library\GraphWidget;
+use Webbamboo\MaterialDashboard\Library\TableHelper;
 
 class MaterialDashboardExtension extends AbstractExtension
 {

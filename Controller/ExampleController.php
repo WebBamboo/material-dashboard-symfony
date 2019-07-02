@@ -4,8 +4,8 @@ namespace Webbamboo\MaterialDashboard\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Webbamboo\MaterialDashboard\Services\ConfigService;
-use App\Webbamboo\MaterialDashboard\Library\TableHelper;
+use Webbamboo\MaterialDashboard\Services\ConfigService;
+use Webbamboo\MaterialDashboard\Library\TableHelper;
 
 class ExampleController extends AbstractController
 {

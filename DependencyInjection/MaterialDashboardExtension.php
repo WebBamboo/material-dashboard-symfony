@@ -26,10 +26,37 @@ class MaterialDashboardExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);  
         $this->config = $config;
-        $container->setParameter("material.menu_header", $config['menu_header']);
-        $container->setParameter("material.sidebar_background", $config['sidebar_background']);
-        $container->setParameter("material.color", $config['color']);
-        $container->setParameter("material.menu", $config['menu']);
-        $container->setParameter("material.user_menu", $config['user_menu']);
+        $container->setParameter("material.menu_header", $this->getDefaultsIfUnset($config, 'menu_header'));
+        $container->setParameter("material.sidebar_background", $this->getDefaultsIfUnset($config, 'sidebar_background'));
+        $container->setParameter("material.color", $this->getDefaultsIfUnset($config, 'color'));
+        $container->setParameter("material.menu", $this->getDefaultsIfUnset($config, 'menu'));
+        $container->setParameter("material.user_menu", $this->getDefaultsIfUnset($config, 'user_menu'));
+    }
+
+    private function getDefaultsIfUnset($config, $property)
+    {
+        $defaults = [
+            'menu_header' => [
+                'title' => 'Material Dashboard',
+                'anchor' => '/'
+            ],
+            'sidebar_background' => '/bundles/materialdashboard/img/sidebar-1.jpg',
+            'color' => 'green',
+            'menu' => [
+                'example_dashboard' => [
+                    'label' => 'Home',
+                    'icon' => 'dashboard',
+                    'parameters' => [ 'name' => 'language', 'value' => 'en' ]
+                ]
+            ],
+            'user_menu' => [
+                'example_profile' => [
+                    'label' => 'Profile',
+                    'parameters' => [ 'name' => 'language', 'value' => 'en' ]
+                ]
+            ]
+        ];
+
+        return isset($config[$property]) ? $config[$property] : $defaults[$property];
     }
 }

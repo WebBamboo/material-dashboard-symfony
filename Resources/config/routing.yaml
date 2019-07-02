@@ -1,4 +1,7 @@
-app_annotations:
-    # loads routes from the PHP annotations of the controllers found in that directory
-    resource: '../../Controller/'
-    type:     annotation
+example_dashboard:
+    path: /example/
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::dashboard
+
+example_profile:
+    path: /example/profile/
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::profile

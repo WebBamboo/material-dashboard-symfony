@@ -3,7 +3,6 @@
 namespace Webbamboo\MaterialDashboard\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Webbamboo\MaterialDashboard\Services\ConfigService;
 use Webbamboo\MaterialDashboard\Library\TableHelper;
 
@@ -16,9 +15,6 @@ class ExampleController extends AbstractController
         $this->tableHelper = $tableHelper;
     }
 
-    /**
-     * @Route("/example/", name="example_dashboard")
-     */
     public function dashboard()
     {
         $graphOne = [
@@ -68,25 +64,10 @@ class ExampleController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/example/profile/", name="example_profile")
-     */
     public function profile()
     {
         return $this->render('@MaterialDashboard/example/profile.html.twig', [
             
-        ]);
-    }
-
-    /**
-     * @Route("/example/controller/php", name="example_controller_php")
-     */
-    public function index(ConfigService $config)
-    {
-        dump($config);
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ExampleControllerPhpController.php',
         ]);
     }
 }

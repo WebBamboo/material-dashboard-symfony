@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Webbamboo\MaterialDashboard\Controller;
+namespace Webbamboo\MaterialDashboard\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;

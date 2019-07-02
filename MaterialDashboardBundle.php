@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard;
+namespace Webbamboo\MaterialDashboard;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

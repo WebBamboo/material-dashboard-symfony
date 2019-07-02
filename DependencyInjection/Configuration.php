@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard\DependencyInjection;
+namespace Webbamboo\MaterialDashboard\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

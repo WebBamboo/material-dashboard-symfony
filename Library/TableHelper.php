@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard\Library;
+namespace Webbamboo\MaterialDashboard\Library;
 
 class TableHelper
 {

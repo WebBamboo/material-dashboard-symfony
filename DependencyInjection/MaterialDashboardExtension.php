@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard\DependencyInjection;
+namespace Webbamboo\MaterialDashboard\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard\Twig;
+namespace Webbamboo\MaterialDashboard\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

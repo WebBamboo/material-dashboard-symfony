@@ -1,5 +1,5 @@
 <?php
-namespace App\Webbamboo\MaterialDashboard\Services;
+namespace Webbamboo\MaterialDashboard\Services;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 

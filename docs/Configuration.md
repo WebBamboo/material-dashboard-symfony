@@ -36,7 +36,7 @@ This tells the sidebar which image to use. Available options included in the das
 - /bundles/materialdashboard/img/sidebar-3.jpg
 - /bundles/materialdashboard/img/sidebar-4.jpg
 
-3._color_
+3._color_ segment
 This is the theme color option. Possible options are:
 
 - purple
@@ -46,4 +46,18 @@ This is the theme color option. Possible options are:
 - danger
 - rose
 
+4._menu_ and _user\_menu_ segment
+The menu and user_menu segments are a yaml array containing all menu entries. Lets look in the example menu entry:
 
+    example_dashboard:
+        label: Home
+        icon: dashboard
+        parameters:
+            - { name: language, value: en }		
+
+-_example\_dashboard_ is the route name
+-_label_ is the label in the menu
+-_icon_ is a material icon name. You can see all [material icons here](http://material.io/)
+-_parameters_ is a key => value array of the route parameters, same as you would supply to Twig's path() and url() functions
+
+The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner

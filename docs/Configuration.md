@@ -25,5 +25,5 @@ Example configuration:
 ## Step by step explanation
 1._menu\_header_ segment
 
-![Menu header]({{site.baseurl}}/docs/menuheader.png)
+![Menu header](/material-dashboard-symfony/menuheader.png)
 This applies to the Header of the left menu. In my example the text of the header is "Material Dashboard" and the anchor points to "/" 

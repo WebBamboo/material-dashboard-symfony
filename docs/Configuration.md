@@ -63,4 +63,4 @@ _parameters_ is a key => value array of the route parameters, same as you would 
 
 The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner
 
-[\<\< Installation](https://webbamboo.github.io/material-dashboard-symfony/Installation.html)                                             Usage \>\>
+[\<\< Installation](https://webbamboo.github.io/material-dashboard-symfony/Installation.html)                                             [Usage \>\>](https://webbamboo.github.io/material-dashboard-symfony/Usage.html)

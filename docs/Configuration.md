@@ -1,6 +1,6 @@
 ## Configuration
 
-In 'config/packages/' create a file called: _material_dashboard.yaml_
+In 'config/packages/' create a file called: _material\_dashboard.yaml_
 
 Example configuration:
 

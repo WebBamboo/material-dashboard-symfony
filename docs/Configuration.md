@@ -55,9 +55,10 @@ The menu and user_menu segments are a yaml array containing all menu entries. Le
         parameters:
             - { name: language, value: en }		
 
--_example\_dashboard_ is the route name
--_label_ is the label in the menu
--_icon_ is a material icon name. You can see all [material icons here](http://material.io/)
--_parameters_ is a key => value array of the route parameters, same as you would supply to Twig's path() and url() functions
+_example\_dashboard_ is the route name
+_label_ is the label in the menu
+_icon_ is a material icon name. You can see all [material icons here](http://material.io/)
+_parameters_ is a key => value array of the route parameters, same as you would supply to Twig's path() and url() functions
+
 
 The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner

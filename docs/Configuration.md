@@ -36,5 +36,14 @@ This tells the sidebar which image to use. Available options included in the das
 - /bundles/materialdashboard/img/sidebar-3.jpg
 - /bundles/materialdashboard/img/sidebar-4.jpg
 
+3._color_
+This is the theme color option. Possible options are:
+
+- purple
+- azure
+- green
+- orange
+- danger
+- rose
 
 

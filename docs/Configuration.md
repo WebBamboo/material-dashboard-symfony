@@ -1,6 +1,6 @@
 ## Configuration
 
-In 'config/packages/' create a file called: _materialdashboard.yaml_
+In 'config/packages/' create a file called: _material_dashboard.yaml_
 
 Example configuration:
 
@@ -21,7 +21,3 @@ Example configuration:
               label: Profile
               parameters:
                   - { name: language, value: en }
-
-
-
-

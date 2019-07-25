@@ -7,13 +7,13 @@ In order to use the base layout in your template add the following code at the b
 
 We've defined the following Twig blocks:
 
-    \{% block meta_title %\}
-    \{% block stylesheets %\}
-    \{% block sidebar %\}
-	\{% block search_bar %\}
-    \{% block notifications %\}
-    \{% block body %\}
-    \{% block javascripts %\}
+    \{\% block meta_title \%\}
+    \{\% block stylesheets \%\}
+    \{\% block sidebar \%\}
+	\{\% block search_bar \%\}
+    \{\% block notifications \%\}
+    \{\% block body \%\}
+    \{\% block javascripts \%\}
    
 ###Card stats dashboard widget
 ![cardstats.png]({{site.baseurl}}/cardstats.png)

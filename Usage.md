@@ -17,5 +17,3 @@ We've defined the following Twig blocks:
    
 ###Card stats dashboard widget
 ![cardstats.png]({{site.baseurl}}/cardstats.png)
-
-

@@ -24,6 +24,6 @@ Example configuration:
                   
 ## Step by step explanation
 1._menu\_header_ segment
+![menuheader.png]({{site.baseurl}}/docs/menuheader.png)
 
-![]({{site.baseurl}}/menuheader.png)
-This applies to the Header of the left menu. In my example the text of the header is "Material Dashboard" and the anchor points to "/" 
+This applies to the Header of the left menu. In my example the text of the header is "Material Dashboard" and the anchor points to "/"

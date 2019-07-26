@@ -1,0 +1,71 @@
+<h2 id="configuration">Configuration</h2>
+
+<p>In ‘config/packages/’ create a file called: <em>material_dashboard.yaml</em></p>
+
+<p>Example configuration:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>material_dashboard:
+  menu_header:
+      title: Material Dashboard
+      anchor: /
+  sidebar_background: /bundles/materialdashboard/img/sidebar-1.jpg
+  color: green 
+  menu:
+      example_dashboard:
+          label: Home
+          icon: dashboard
+          parameters:
+              - { name: language, value: en }
+  user_menu:
+      example_profile:
+          label: Profile
+          parameters:
+              - { name: language, value: en }
+</code></pre></div></div>
+
+<h2 id="step-by-step-explanation">Step by step explanation</h2>
+<p>1.<em>menu_header</em> segment
+<img src="/docs/menuheader.png" alt="menuheader.png" /></p>
+
+<p>This applies to the Header of the left menu. In my example the text of the header is “Material Dashboard” and the anchor points to “/”</p>
+
+<p>2.<em>sidebar_background</em> segment</p>
+
+<p>This tells the sidebar which image to use. Available options included in the dashboard are</p>
+<ul>
+  <li>/bundles/materialdashboard/img/sidebar-1.jpg</li>
+  <li>/bundles/materialdashboard/img/sidebar-2.jpg</li>
+  <li>/bundles/materialdashboard/img/sidebar-3.jpg</li>
+  <li>/bundles/materialdashboard/img/sidebar-4.jpg</li>
+</ul>
+
+<p>3.<em>color</em> segment
+This is the theme color option. Possible options are:</p>
+
+<ul>
+  <li>purple</li>
+  <li>azure</li>
+  <li>green</li>
+  <li>orange</li>
+  <li>danger</li>
+  <li>rose</li>
+</ul>
+
+<p>4.<em>menu</em> and <em>user_menu</em> segment
+The menu and user_menu segments are a yaml array containing all menu entries. Lets look in the example menu entry:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>example_dashboard:
+    label: Home
+    icon: dashboard
+    parameters:
+        - { name: language, value: en }		
+</code></pre></div></div>
+
+<p><em>example_dashboard</em> is the route name
+<em>label</em> is the label in the menu
+<em>icon</em> is a material icon name. You can see all <a href="http://material.io/">material icons here</a>
+<em>parameters</em> is a key =&gt; value array of the route parameters, same as you would supply to Twig’s path() and url() functions</p>
+
+<p>The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner</p>
+
+<p><a href="https://webbamboo.github.io/material-dashboard-symfony/Installation.html">&lt;&lt; Installation</a>                                             <a href="https://webbamboo.github.io/material-dashboard-symfony/Usage.html">Usage &gt;&gt;</a></p>

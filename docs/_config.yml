@@ -1,5 +1,6 @@
 theme: jekyll-theme-midnight
-title: Dashboard bundle for Symfony based on Creative Tim's Material Dashboard
+title: Dashboard bundle for Symfony
+description: The bundle is based on Creative Tim's Material Dashboard and is intended to make the integration into Symfony projects easier
 show_downloads: true
 plugins:
   - jekyll-admin

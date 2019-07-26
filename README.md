@@ -1,5 +1,4 @@
-I've moved all relevant documentation to:
-    [Our GitHub.io page]: https://webbamboo.github.io/material-dashboard-symfony/
+I've moved all relevant documentation to the project's GitHub.io page: https://webbamboo.github.io/material-dashboard-symfony/
     
 License
 ----

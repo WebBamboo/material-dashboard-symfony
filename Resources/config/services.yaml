@@ -1,6 +1,8 @@
 services:
     material_dashboard.config:
-        class: App\Webbamboo\MaterialDashboard\Services\ConfigService
+        class: Webbamboo\MaterialDashboard\Services\ConfigService
+    Webbamboo\MaterialDashboard\Library\TableHelper:
+        autowire: true
     
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

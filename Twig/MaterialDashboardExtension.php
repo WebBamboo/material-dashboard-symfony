@@ -15,11 +15,10 @@ class MaterialDashboardExtension extends AbstractExtension
     protected $router;
     protected $tableHelper;
 
-    public function __construct(ConfigService $config, RouterInterface $router, TableHelper $tableHelper)
+    public function __construct(ConfigService $config, RouterInterface $router)
     {
         $this->config = $config;
         $this->router = $router;
-        $this->tableHelper = $tableHelper;
     }
 
     public function getFunctions()
@@ -32,12 +31,12 @@ class MaterialDashboardExtension extends AbstractExtension
             new TwigFunction('userMenuItems', [$this, 'userMenuItems']),
             new TwigFunction('getItemRoute', [$this, 'getItemRoute']),
             new TwigFunction('materialGraph', [$this, 'materialGraph'], ['is_safe' => ['html']]),
-            new TwigFunction('tableHelper', [$this, 'tableHelper'], ['is_safe' => ['html']])
+            new TwigFunction('tableRender', [$this, 'tableRender'], ['is_safe' => ['html']])
         ];
     }
-    public function tableHelper()
+    public function tableRender(TableHelper $tableHelper)
     {
-        return $this->tableHelper;
+        return $tableHelper->render();
     }
     
     public function materialGraph($data=null, $type='line', $options=null)

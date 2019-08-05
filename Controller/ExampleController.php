@@ -4,18 +4,11 @@ namespace Webbamboo\MaterialDashboard\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Webbamboo\MaterialDashboard\Services\ConfigService;
-use Webbamboo\MaterialDashboard\Library\TableHelper;
+use Webbamboo\MaterialDashboard\Library\TableFactory;
 
 class ExampleController extends AbstractController
 {
-    public $tableHelper;
-
-    public function __construct(TableHelper $tableHelper)
-    {
-        $this->tableHelper = $tableHelper;
-    }
-
-    public function dashboard()
+    public function dashboard(TableFactory $tableFactory)
     {
         $graphOne = [
             'labels' => ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -42,10 +35,10 @@ class ExampleController extends AbstractController
             ]
         ];
 
-        $this->tableHelper->init(
+        $employeeStats = $tableFactory->create(
             'Employees Stats', 
             'New employees on 15th September, 2016', 
-            TableHelper::HEADER_INFO, 
+            TableFactory::HEADER_INFO, 
             [
                 [1, "Dakota Rice", "$36,728", "Niger"],
                 [2, "Minerva Hooper", "$23,789", "Curaçao"],
@@ -60,7 +53,7 @@ class ExampleController extends AbstractController
             "graphTwo" => $graphTwo,
             "graphTwoOptions" => $graphTwoOptions,
             "graphThree" => $graphThree,
-            "table" => $this->tableHelper
+            "table" => $employeeStats
         ]);
     }
 

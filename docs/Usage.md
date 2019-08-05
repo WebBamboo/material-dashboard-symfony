@@ -106,3 +106,60 @@ The widget generates the following twig template:
     </div>
 </div>
 ```
+
+### Table Helper
+In order to make rendering of styled tables easier I've created a helper class that does all the styling for you, of course you can always style your own tables following the [Material Dashboard](https://demos.creative-tim.com/material-dashboard/examples/dashboard.html) examples.
+
+How to use the table helper for easier rendering:
+```
+<?php
+//src/Controller/DashboardController.php
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Webbamboo\MaterialDashboard\Library\TableFactory;
+
+class DashboardController extends AbstractController {
+	   public function index(TableFactory $tableFactory)
+     {
+		    $employeeStats = $tableFactory->create(
+                'Employees Stats', 
+                'New employees on 15th September, 2016', 
+                TableFactory::HEADER_INFO, 
+                [
+                    [1, "Dakota Rice", "$36,728", "Niger"],
+                    [2, "Minerva Hooper", "$23,789", "Curaçao"],
+                    [3, "Sage Rodriguez", "$56,142", "Netherlands"],
+                    [4, "Philip Chaney", "$38,735", "Korea, South"],
+                ], 
+                [ 'ID', 'Name', 'Salary', 'Country' ]
+            );
+						return $this->render('@MaterialDashboard/example/dashboard.html.twig', [
+										"table" => $employeeStats
+						]);
+	    }
+}
+```
+The factory create method accepts the following parameters:
+```
+?string $title, ?string $subtitle, ?string $style, ?array $rows, ?array $th
+```
+
+***Title***: Title of the table widget
+
+***Subtitle***: Subtitle of the table widget
+
+***Style***: Can be one of the following constants accessible from all classes implementing TableInterface or from the TableInterface directly: HEADER_INFO, HEADER_PRIMARY, HEADER_WARNING, HEADER_DANGER. ex. TableInterface::HEADER_INFO, TableFactory::HEADER_INFO, TableFactory::HEADER_INFO 
+
+***Rows***: An array of arrays containing the table rows
+
+***Th***: An array of strings specifying the table header
+
+
+**In order to use the table in your Twig template you do the following:**
+
+<code>
+    &#123;&#123; tableRender(table) &#125;&#125;
+</code>
+
+You can use the table.render() function directly but that way you will have to use the Twig |raw filter to render the html.

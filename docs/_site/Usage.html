@@ -103,3 +103,64 @@ Any icon from <a href="http://material.io">material.io</a></p>
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre></div></div>
+
+<h3 id="table-helper">Table Helper</h3>
+<p>In order to make rendering of styled tables easier I’ve created a helper class that does all the styling for you, of course you can always style your own tables following the <a href="https://demos.creative-tim.com/material-dashboard/examples/dashboard.html">Material Dashboard</a> examples.</p>
+
+<p>How to use the table helper for easier rendering:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+//src/Controller/DashboardController.php
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Webbamboo\MaterialDashboard\Library\TableFactory;
+
+class DashboardController extends AbstractController {
+	   public function index(TableFactory $tableFactory)
+     {
+		    $employeeStats = $tableFactory-&gt;create(
+                'Employees Stats', 
+                'New employees on 15th September, 2016', 
+                TableFactory::HEADER_INFO, 
+                [
+                    [1, "Dakota Rice", "$36,728", "Niger"],
+                    [2, "Minerva Hooper", "$23,789", "Curaçao"],
+                    [3, "Sage Rodriguez", "$56,142", "Netherlands"],
+                    [4, "Philip Chaney", "$38,735", "Korea, South"],
+                ], 
+                [ 'ID', 'Name', 'Salary', 'Country' ]
+            );
+						return $this-&gt;render('@MaterialDashboard/example/dashboard.html.twig', [
+										"table" =&gt; $employeeStats
+						]);
+	    }
+}
+</code></pre></div></div>
+<p>The factory create method accepts the following parameters:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?string $title, ?string $subtitle, ?string $style, ?array $rows, ?array $th
+</code></pre></div></div>
+
+<p><strong><em>Title</em></strong>: Title of the table widget</p>
+
+<p><strong><em>Subtitle</em></strong>: Subtitle of the table widget</p>
+
+<p><strong><em>Style</em></strong>: Can be one of the following constants accessible from all classes implementing TableInterface or from the TableInterface directly: HEADER_INFO, HEADER_PRIMARY, HEADER_WARNING, HEADER_DANGER. ex. TableInterface::HEADER_INFO, TableFactory::HEADER_INFO, TableFactory::HEADER_INFO</p>
+
+<p><strong><em>Rows</em></strong>: An array of arrays containing the table rows</p>
+
+<p><strong><em>Th</em></strong>: An array of strings specifying the table header</p>
+
+<p><strong>In order to use the table in your Twig template you do the following:</strong></p>
+
+<p><code>
+    &#123;&#123; tableRender(table) &#125;&#125;
+</code></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>You can use the table.render() function directly but that way you will have to use the Twig</td>
+      <td>raw filter to render the html.</td>
+    </tr>
+  </tbody>
+</table>

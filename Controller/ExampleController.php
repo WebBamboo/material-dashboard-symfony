@@ -5,6 +5,7 @@ namespace Webbamboo\MaterialDashboard\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Webbamboo\MaterialDashboard\Services\ConfigService;
 use Webbamboo\MaterialDashboard\Library\TableFactory;
+use Webbamboo\MaterialDashboard\Model\NotificationInterface;
 
 class ExampleController extends AbstractController
 {

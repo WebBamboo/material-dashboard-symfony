@@ -1,0 +1,12 @@
+<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="material-icons">notifications</i>
+<span class="notification">{{ notifications|length }}</span>
+<p class="d-lg-none d-md-block">
+    Notifications
+</p>
+</a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+    {% for notification in notifications %}
+    <a class="dropdown-item" href="#">{{ notification.description }}</a>
+    {% endfor %}
+</div>

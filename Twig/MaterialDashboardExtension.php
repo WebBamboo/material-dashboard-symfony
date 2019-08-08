@@ -28,6 +28,7 @@ class MaterialDashboardExtension extends AbstractExtension
             new TwigFunction('color', [$this, 'color']),
             new TwigFunction('menuHeader', [$this, 'menuHeader']),
             new TwigFunction('menuItems', [$this, 'menuItems']),
+            new TwigFunction('notificationsEnabled', [$this, 'notificationsEnabled']),
             new TwigFunction('userMenuItems', [$this, 'userMenuItems']),
             new TwigFunction('getItemRoute', [$this, 'getItemRoute']),
             new TwigFunction('materialGraph', [$this, 'materialGraph'], ['is_safe' => ['html']]),
@@ -66,6 +67,11 @@ class MaterialDashboardExtension extends AbstractExtension
     public function userMenuItems()
     {
         return $this->config->user_menu;
+    }
+
+    public function notificationsEnabled()
+    {
+        return $this->config->notifications_enabled;
     }
 
     public function getItemRoute($path, $item)

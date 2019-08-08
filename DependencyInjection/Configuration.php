@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('anchor')->end()
                     ->end()
                 ->end() // twitter
+                ->scalarNode('notifications_enabled')->defaultValue(false)->end()
                 ->scalarNode('sidebar_background')->defaultValue('../assets/img/sidebar-1.jpg')->end()
                 ->scalarNode('color')->defaultValue('azure')->end()
                 ->arrayNode('user_menu')

@@ -10,6 +10,7 @@ class ConfigService
     public $color;
     public $menu;
     public $user_menu;
+    public $notifications_enabled;
 
     public function __construct(ParameterBagInterface $params)
     {
@@ -18,5 +19,6 @@ class ConfigService
         $this->color = $params->get("material.color");
         $this->menu = $params->get("material.menu");
         $this->user_menu = $params->get("material.user_menu");
+        $this->notifications_enabled = $params->get("material.notifications_enabled");
     }
 }

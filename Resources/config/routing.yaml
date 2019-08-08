@@ -5,3 +5,11 @@ example_dashboard:
 example_profile:
     path: /example/profile/
     controller: Webbamboo\MaterialDashboard\Controller\ExampleController::profile
+
+notification_latest:
+    path: /notifications/latest
+    controller: Webbamboo\MaterialDashboard\Controller\NotificationController::latest
+
+notification_all:
+    path: /notifications/all
+    controller: Webbamboo\MaterialDashboard\Controller\NotificationController::all

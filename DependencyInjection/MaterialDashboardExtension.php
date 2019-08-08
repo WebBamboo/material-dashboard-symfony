@@ -31,6 +31,7 @@ class MaterialDashboardExtension extends Extension
         $container->setParameter("material.color", $this->getDefaultsIfUnset($config, 'color'));
         $container->setParameter("material.menu", $this->getDefaultsIfUnset($config, 'menu'));
         $container->setParameter("material.user_menu", $this->getDefaultsIfUnset($config, 'user_menu'));
+        $container->setParameter("material.notifications_enabled", $this->getDefaultsIfUnset($config, 'notifications_enabled'));
     }
 
     private function getDefaultsIfUnset($config, $property)
@@ -54,7 +55,8 @@ class MaterialDashboardExtension extends Extension
                     'label' => 'Profile',
                     'parameters' => [ 'name' => 'language', 'value' => 'en' ]
                 ]
-            ]
+            ],
+            'notifications_enabled' => false
         ];
 
         return isset($config[$property]) ? $config[$property] : $defaults[$property];

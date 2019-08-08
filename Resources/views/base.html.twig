@@ -84,20 +84,15 @@
                 </a>
               </li>
               {% block notifications %}
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" id="notificationsContainer">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <span class="notification">0</span>
                   <p class="d-lg-none d-md-block">
-                    Some Actions
+                    Notifications
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
                 </div>
               </li>
               {% endblock %}
@@ -713,7 +708,28 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
-
+      {% if notificationsEnabled() %}
+      (function checkNotifications() {
+        // Do stuff
+        $.get( "{{ path('notification_latest') }}", function( data ) {
+          if(typeof window.notificationsLatestUpdate == 'undefined')
+          {
+            window.notificationsLatestUpdate = 0;
+          }
+          if(data.created > 0 && data.created !== window.notificationsLatestUpdate)
+          {
+            $.get( "{{ path('notification_all') }}", function( data ) {
+              $("#notificationsContainer").html(data);
+              setTimeout(checkNotifications, 15000);
+            });
+          }
+          else{
+            setTimeout(checkNotifications, 15000);
+          }
+        });
+        
+      }());
+      {% endif %}
     });
   </script>
   {% endblock %}

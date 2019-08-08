@@ -162,4 +162,4 @@ The factory create method accepts the following parameters:
     &#123;&#123; tableRender(table) &#125;&#125;
 </code>
 
-You can use the table.render() function directly but that way you will have to use the Twig |raw filter to render the html.
+You can use the table.render() function directly but that way you will have to use the Twig raw filter to render the html.

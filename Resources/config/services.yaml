@@ -1,9 +1,19 @@
 services:
     material_dashboard.config:
         class: Webbamboo\MaterialDashboard\Services\ConfigService
+    material_dashboard.generator:
+        class: Webbamboo\MaterialDashboard\Generator\Generator
+        arguments: ['@maker.file_manager', 'App\']
     Webbamboo\MaterialDashboard\Library\TableHelper:
         autowire: true
-    
+    webbamboo.maker.make_crud:
+        class:  Webbamboo\MaterialDashboard\Maker\MakeCrud
+        arguments: ['@maker.doctrine_helper', '@maker.renderer.form_type_renderer', '@material_dashboard.generator']
+        calls:
+            - [configureCommand, ['@security.command.user_password_encoder', '@?']]
+            - [interact, ['@?', '@?', '@security.command.user_password_encoder']]
+        tags:
+            - { name: maker.command }
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
@@ -15,4 +25,4 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     Webbamboo\MaterialDashboard\:
         resource: '../../*'
-        exclude: '../../{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../../{DependencyInjection,Entity,Migrations,Maker,Tests,Kernel.php}'

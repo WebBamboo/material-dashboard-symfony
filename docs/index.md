@@ -8,4 +8,5 @@ The Material Dashboard Bundle is based on the [Material Dashboard by Creative Ti
 Table of contents:
 * [Installation](/material-dashboard-symfony/Installation.html)
 * [Configuration](/material-dashboard-symfony/Configuration.html)
-* [Usage](https://webbamboo.github.io/material-dashboard-symfony/Usage.html)
+* [Usage](/material-dashboard-symfony/Usage.html)
+* [CRUD](/material-dashboard-symfony/Crud.html)

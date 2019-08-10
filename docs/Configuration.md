@@ -3,6 +3,13 @@ title: Configuration
 ---
 
 ## Configuration
+In 'config/packages/twig.yaml' add the following:
+
+```
+twig:
+    ...
+    form_themes: ['bootstrap_4_layout.html.twig']
+```
 
 In 'config/packages/' create a file called: _material\_dashboard.yaml_
 

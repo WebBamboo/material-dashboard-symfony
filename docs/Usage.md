@@ -163,3 +163,9 @@ The factory create method accepts the following parameters:
 </code>
 
 You can use the table.render() function directly but that way you will have to use the Twig raw filter to render the html.
+
+Table of contents:
+* [Installation](/material-dashboard-symfony/Installation.html)
+* [Configuration](/material-dashboard-symfony/Configuration.html)
+* [Usage](/material-dashboard-symfony/Usage.html)
+* [CRUD](/material-dashboard-symfony/Crud.html)

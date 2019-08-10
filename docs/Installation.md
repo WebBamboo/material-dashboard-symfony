@@ -7,4 +7,8 @@ Installation of the Material Dashboard Bundle is a one step procedure. You just 
 
 `composer require webbamboo/material-dashboard-symfony`
 
-[Configuration \>\>](https://webbamboo.github.io/material-dashboard-symfony/Configuration.html)
+Table of contents:
+* [Installation](/material-dashboard-symfony/Installation.html)
+* [Configuration](/material-dashboard-symfony/Configuration.html)
+* [Usage](/material-dashboard-symfony/Usage.html)
+* [CRUD](/material-dashboard-symfony/Crud.html)

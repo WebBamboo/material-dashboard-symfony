@@ -12,4 +12,4 @@ php bin/console material-dashboard:make:crud
 
 You use it the same way you'd use the regular MakerBundle make:crud command, just follow the wizard and you'll have your styled CRUD interfaces ready in no time.
 
-{% include footer_menu.html %}
+{% include footermenu.html %}

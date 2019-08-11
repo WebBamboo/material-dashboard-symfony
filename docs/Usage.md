@@ -164,4 +164,4 @@ The factory create method accepts the following parameters:
 
 You can use the table.render() function directly but that way you will have to use the Twig raw filter to render the html.
 
-{% include footer_menu.html %}
+{% include footermenu.html %}

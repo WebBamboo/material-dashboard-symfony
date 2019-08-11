@@ -121,3 +121,5 @@ php bin/console material-dashboard:test-notification
 ```
 
 Now the user you've chosen in the command wizard will get the notification in their dashboard. Usually the notifications appear within 15 seconds without refresh.
+
+{% include footermenu.html %}

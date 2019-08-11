@@ -7,4 +7,4 @@ Installation of the Material Dashboard Bundle is a one step procedure. You just 
 
 `composer require webbamboo/material-dashboard-symfony`
 
-{% include footer_menu.html %}
+{% include footermenu.html %}

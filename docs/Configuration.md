@@ -74,4 +74,4 @@ _parameters_ is a key => value array of the route parameters, same as you would 
 
 The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner
 
-{% include footer_menu.html %}
+{% include footermenu.html %}

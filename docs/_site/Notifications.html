@@ -1,0 +1,141 @@
+<p>A simple notifications system is bundled with this code, you can easily modify it if needed or implement your own. In order to make use of it you have to go through a few steps:</p>
+<ol>
+  <li>Create the Notification Entity. IMPORTANT Note that this system assumes your user entity is App\Entity\User adjust if needed:
+```
+&lt;?php</li>
+</ol>
+
+<p>namespace App\Entity;</p>
+
+<p>use Doctrine\ORM\Mapping as ORM;
+use Webbamboo\MaterialDashboard\Model\NotificationInterface;</p>
+
+<p>/**</p>
+<ul>
+  <li>@ORM\Entity(repositoryClass=”App\Repository\NotificationRepository”)
+ */
+class Notification implements NotificationInterface
+{
+ /**
+    <ul>
+      <li>@ORM\Id()</li>
+      <li>@ORM\GeneratedValue()</li>
+      <li>@ORM\Column(type=”integer”)
+  */
+ private $id;</li>
+    </ul>
+
+    <p>/**</p>
+    <ul>
+      <li>@ORM\ManyToOne(targetEntity=”App\Entity\User”, inversedBy=”notifications”)
+  */
+ private $user;</li>
+    </ul>
+
+    <p>/**</p>
+    <ul>
+      <li>@ORM\Column(type=”array”, nullable=true)
+  */
+ private $data = [];</li>
+    </ul>
+
+    <p>/**</p>
+    <ul>
+      <li>@ORM\Column(type=”text”)
+  */
+ private $description;</li>
+    </ul>
+
+    <p>/**</p>
+    <ul>
+      <li>@ORM\Column(type=”datetimetz”)
+  */
+ private $created;</li>
+    </ul>
+
+    <p>public function getId(): ?int
+ {
+     return $this-&gt;id;
+ }</p>
+
+    <p>public function getUser(): ?User
+ {
+     return $this-&gt;user;
+ }</p>
+
+    <p>public function setUser(?User $user): self
+ {
+     $this-&gt;user = $user;</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
+</code></pre></div>    </div>
+
+    <p>public function getData(): ?array
+ {
+     return $this-&gt;data;
+ }</p>
+
+    <p>public function setData(?array $data): self
+ {
+     $this-&gt;data = $data;</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
+</code></pre></div>    </div>
+
+    <p>public function getDescription(): ?string
+ {
+     return $this-&gt;description;
+ }</p>
+
+    <p>public function setDescription(string $description): self
+ {
+     $this-&gt;description = $description;</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
+</code></pre></div>    </div>
+
+    <p>public function getCreated(): ?\DateTimeInterface
+ {
+     return $this-&gt;created;
+ }</p>
+
+    <p>public function setCreated(\DateTimeInterface $created): self
+ {
+     $this-&gt;created = $created;</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  } } ```
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<ol>
+  <li>Once that is done update your database running:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/console doctrine:schema:update --force
+</code></pre></div>    </div>
+  </li>
+  <li>Open config/packages/doctrine.yaml and add the following:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>doctrine:
+            ...
+            orm:
+                            ...
+                            resolve_target_entities:
+                                            Webbamboo\MaterialDashboard\Model\NotificationInterface: App\Entity\Notification
+</code></pre></div>    </div>
+  </li>
+  <li>Once the configuration is done you can clear the cache and run the following command to test the notification system:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/console cache:clear
+php bin/console material-dashboard:test-notification
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Now the user you’ve chosen in the command wizard will get the notification in their dashboard. Usually the notifications appear within 15 seconds without refresh.</p>
+
+<p><b>Table of contents: </b></p>
+<ul>
+    <li><a href="/material-dashboard-symfony/Installation.html">Installation</a></li>
+    <li><a href="/material-dashboard-symfony/Configuration.html">Configuration</a></li>
+    <li><a href="/material-dashboard-symfony/Usage.html">Usage</a></li>
+    <li><a href="/material-dashboard-symfony/Crud.html">CRUD</a></li>
+    <li><a href="/material-dashboard-symfony/Notifications.html">Notifications</a></li>
+</ul>

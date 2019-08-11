@@ -4,6 +4,8 @@ title: Building a simple notifications system
 
 A simple notifications system is bundled with this code, you can easily modify it if needed or implement your own. In order to make use of it you have to go through a few steps:
 1. Create the Notification Entity. IMPORTANT Note that this system assumes your user entity is App\Entity\User adjust if needed:
+
+
 ```
 <?php
 
@@ -115,6 +117,8 @@ doctrine:
 ```
 
 4. Once the configuration is done you can clear the cache and run the following command to test the notification system:
+
+
 ```
 php bin/console cache:clear
 php bin/console material-dashboard:test-notification

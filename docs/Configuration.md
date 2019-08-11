@@ -8,7 +8,7 @@ In 'config/packages/twig.yaml' add the following:
 ```
 twig:
     ...
-    form_themes: ['bootstrap_4_layout.html.twig']
+    form_themes: ['bootstrap_4_layout.html.twig']{% include footer.html %}
 ```
 
 In 'config/packages/' create a file called: _material\_dashboard.yaml_
@@ -74,8 +74,4 @@ _parameters_ is a key => value array of the route parameters, same as you would 
 
 The menu segment applies to the left menu and the user_menu applies to the drop-down menu in the upper right corner
 
-Table of contents:
-* [Installation](/material-dashboard-symfony/Installation.html)
-* [Configuration](/material-dashboard-symfony/Configuration.html)
-* [Usage](/material-dashboard-symfony/Usage.html)
-* [CRUD](/material-dashboard-symfony/Crud.html)
+{% include footer_menu.html %}

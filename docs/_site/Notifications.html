@@ -1,112 +1,101 @@
 <p>A simple notifications system is bundled with this code, you can easily modify it if needed or implement your own. In order to make use of it you have to go through a few steps:</p>
 <ol>
-  <li>Create the Notification Entity. IMPORTANT Note that this system assumes your user entity is App\Entity\User adjust if needed:
-```
-&lt;?php</li>
+  <li>Create the Notification Entity. IMPORTANT Note that this system assumes your user entity is App\Entity\User adjust if needed:</li>
 </ol>
 
-<p>namespace App\Entity;</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
 
-<p>use Doctrine\ORM\Mapping as ORM;
-use Webbamboo\MaterialDashboard\Model\NotificationInterface;</p>
+namespace App\Entity;
 
-<p>/**</p>
-<ul>
-  <li>@ORM\Entity(repositoryClass=”App\Repository\NotificationRepository”)
+use Doctrine\ORM\Mapping as ORM;
+use Webbamboo\MaterialDashboard\Model\NotificationInterface;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\NotificationRepository")
  */
 class Notification implements NotificationInterface
 {
- /**
-    <ul>
-      <li>@ORM\Id()</li>
-      <li>@ORM\GeneratedValue()</li>
-      <li>@ORM\Column(type=”integer”)
-  */
- private $id;</li>
-    </ul>
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-    <p>/**</p>
-    <ul>
-      <li>@ORM\ManyToOne(targetEntity=”App\Entity\User”, inversedBy=”notifications”)
-  */
- private $user;</li>
-    </ul>
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="notifications")
+     */
+    private $user;
 
-    <p>/**</p>
-    <ul>
-      <li>@ORM\Column(type=”array”, nullable=true)
-  */
- private $data = [];</li>
-    </ul>
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $data = [];
 
-    <p>/**</p>
-    <ul>
-      <li>@ORM\Column(type=”text”)
-  */
- private $description;</li>
-    </ul>
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
 
-    <p>/**</p>
-    <ul>
-      <li>@ORM\Column(type=”datetimetz”)
-  */
- private $created;</li>
-    </ul>
+    /**
+     * @ORM\Column(type="datetimetz")
+     */
+    private $created;
 
-    <p>public function getId(): ?int
- {
-     return $this-&gt;id;
- }</p>
+    public function getId(): ?int
+    {
+        return $this-&gt;id;
+    }
 
-    <p>public function getUser(): ?User
- {
-     return $this-&gt;user;
- }</p>
+    public function getUser(): ?User
+    {
+        return $this-&gt;user;
+    }
 
-    <p>public function setUser(?User $user): self
- {
-     $this-&gt;user = $user;</p>
+    public function setUser(?User $user): self
+    {
+        $this-&gt;user = $user;
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
-</code></pre></div>    </div>
+        return $this;
+    }
 
-    <p>public function getData(): ?array
- {
-     return $this-&gt;data;
- }</p>
+    public function getData(): ?array
+    {
+        return $this-&gt;data;
+    }
 
-    <p>public function setData(?array $data): self
- {
-     $this-&gt;data = $data;</p>
+    public function setData(?array $data): self
+    {
+        $this-&gt;data = $data;
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
-</code></pre></div>    </div>
+        return $this;
+    }
 
-    <p>public function getDescription(): ?string
- {
-     return $this-&gt;description;
- }</p>
+    public function getDescription(): ?string
+    {
+        return $this-&gt;description;
+    }
 
-    <p>public function setDescription(string $description): self
- {
-     $this-&gt;description = $description;</p>
+    public function setDescription(string $description): self
+    {
+        $this-&gt;description = $description;
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  }
-</code></pre></div>    </div>
+        return $this;
+    }
 
-    <p>public function getCreated(): ?\DateTimeInterface
- {
-     return $this-&gt;created;
- }</p>
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this-&gt;created;
+    }
 
-    <p>public function setCreated(\DateTimeInterface $created): self
- {
-     $this-&gt;created = $created;</p>
+    public function setCreated(\DateTimeInterface $created): self
+    {
+        $this-&gt;created = $created;
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> return $this;  } } ```
-</code></pre></div>    </div>
-  </li>
-</ul>
+        return $this;
+    }
+}
+</code></pre></div></div>
 
 <ol>
   <li>Once that is done update your database running:
@@ -122,12 +111,12 @@ class Notification implements NotificationInterface
                                             Webbamboo\MaterialDashboard\Model\NotificationInterface: App\Entity\Notification
 </code></pre></div>    </div>
   </li>
-  <li>Once the configuration is done you can clear the cache and run the following command to test the notification system:
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/console cache:clear
-php bin/console material-dashboard:test-notification
-</code></pre></div>    </div>
-  </li>
+  <li>Once the configuration is done you can clear the cache and run the following command to test the notification system:</li>
 </ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/console cache:clear
+php bin/console material-dashboard:test-notification
+</code></pre></div></div>
 
 <p>Now the user you’ve chosen in the command wizard will get the notification in their dashboard. Usually the notifications appear within 15 seconds without refresh.</p>
 
@@ -137,5 +126,6 @@ php bin/console material-dashboard:test-notification
     <li><a href="/material-dashboard-symfony/Configuration.html">Configuration</a></li>
     <li><a href="/material-dashboard-symfony/Usage.html">Usage</a></li>
     <li><a href="/material-dashboard-symfony/Crud.html">CRUD</a></li>
+    <li><a href="/material-dashboard-symfony/Controller.html">Controller</a></li>
     <li><a href="/material-dashboard-symfony/Notifications.html">Notifications</a></li>
 </ul>

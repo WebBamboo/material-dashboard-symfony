@@ -14,6 +14,11 @@ services:
             - [interact, ['@?', '@?', '@security.command.user_password_encoder']]
         tags:
             - { name: maker.command }
+    webbamboo.maker.make_controller:
+        class:  Webbamboo\MaterialDashboard\Maker\MakeController
+        arguments: ['@material_dashboard.generator']
+        tags:
+            - { name: maker.command }
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

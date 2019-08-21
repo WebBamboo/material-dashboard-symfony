@@ -3,19 +3,5 @@
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:WebBamboo/material-dashboard-symfony-installed.git YourDashboardName
 <span class="nv">$ </span><span class="nb">cd </span>YourDashboardName
 <span class="nv">$ </span>composer install
-<span class="c"># Copy your .env file then configure the DATABASE_URL</span>
-<span class="nv">$ </span>cp .env .env.local<span class="p">;</span>nano .env.local
-<span class="nv">$ </span>php bin/console doctrine:database:create
-<span class="nv">$ </span>php bin/console doctrine:schema:update <span class="nt">--force</span>
-<span class="c"># Optional Step: Configure the Username and Password in your UserFixture in order to create a user with ROLE_SUPER_ADMIN</span>
-<span class="c"># If you go with this step it is VERY IMPORTANT to remove the fixture after loading you don't want your plain-text password sticking around</span>
-<span class="nv">$ </span>nano src/DataFixtures/UserFixtures.php
-<span class="nv">$ </span>php bin/console doctrine:fixtures:load
-<span class="nv">$ </span>rm src/DataFixtures/UserFixtures.php
-
-<span class="c"># Install assets</span>
-<span class="nv">$ </span>php bin/console assets:install
-
-<span class="c"># At this point you are ready, you can run your app</span>
-<span class="nv">$ </span>symfony serve
+<span class="nv">$ </span>php bin/console app:install-material-dashboard
 </code></pre></div></div>

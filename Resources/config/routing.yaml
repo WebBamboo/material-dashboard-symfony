@@ -13,3 +13,47 @@ notification_latest:
 notification_all:
     path: /notifications/all
     controller: Webbamboo\MaterialDashboard\Controller\NotificationController::all
+
+external_creative_tim:
+    path: /external/creative_tim
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::externalCreativeTim
+
+external_about_us:
+    path: /external/about_us
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::externalAboutUs
+
+external_blog:
+    path: /external/blog
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::externalBlog
+
+external_licenses:
+    path: /external/licenses
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::externalLicenses
+
+example_table_list:
+    path: /example/table_list
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::tableList
+
+example_typography:
+    path: /example/typography
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::typography
+
+example_icons:
+    path: /example/icons
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::icons
+
+example_maps:
+    path: /example/maps
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::maps
+
+example_notifications:
+    path: /example/notifications
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::notifications
+
+example_rtl:
+    path: /example/rtl
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::rtl
+
+example_upgrade:
+    path: /example/upgrade
+    controller: Webbamboo\MaterialDashboard\Controller\ExampleController::upgrade

@@ -31,7 +31,10 @@ class MaterialDashboardExtension extends Extension
         $container->setParameter("material.color", $this->getDefaultsIfUnset($config, 'color'));
         $container->setParameter("material.menu", $this->getDefaultsIfUnset($config, 'menu'));
         $container->setParameter("material.user_menu", $this->getDefaultsIfUnset($config, 'user_menu'));
+        $container->setParameter("material.landing_top_menu", $this->getDefaultsIfUnset($config, 'landing_top_menu'));
+        $container->setParameter("material.landing_bottom_menu", $this->getDefaultsIfUnset($config, 'landing_bottom_menu'));
         $container->setParameter("material.notifications_enabled", $this->getDefaultsIfUnset($config, 'notifications_enabled'));
+        $container->setParameter("material.example_menu", $this->getDefaultsIfUnset($config, 'example_menu'));
     }
 
     private function getDefaultsIfUnset($config, $property)
@@ -56,9 +59,31 @@ class MaterialDashboardExtension extends Extension
                     'parameters' => [ 'name' => 'language', 'value' => 'en' ]
                 ]
             ],
-            'notifications_enabled' => false
+            'landing_top_menu' => [
+                'example_register' => [
+                    'label' => 'Register',
+                    'icon' => 'person_add',
+                    'parameters' => [ 'name' => 'language', 'value' => 'en' ]
+                ],
+                'example_login' => [
+                    'label' => 'Login',
+                    'icon' => 'fingerprint',
+                    'parameters' => [ 'name' => 'language', 'value' => 'en' ]
+                ]
+            ],
+            'landing_bottom_menu' => [
+                'example_register' => [
+                    'label' => 'Register'
+                ],
+                'example_login' => [
+                    'label' => 'Login',
+                    'icon' => 'fingerprint',
+                    'parameters' => [ 'name' => 'language', 'value' => 'en' ]
+                ]
+            ],
+            'notifications_enabled' => false,
+            'example_menu' => false
         ];
-
         return isset($config[$property]) ? $config[$property] : $defaults[$property];
     }
 }

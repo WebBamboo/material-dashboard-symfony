@@ -64,4 +64,73 @@ class ExampleController extends AbstractController
             
         ]);
     }
+
+    public function tableList()
+    {
+        return $this->render('@MaterialDashboard/example/table_list.html.twig', [
+            
+        ]);
+    }
+
+    public function typography()
+    {
+        return $this->render('@MaterialDashboard/example/typography.html.twig', [
+            
+        ]);
+    }
+
+    public function icons()
+    {
+        return $this->render('@MaterialDashboard/example/icons.html.twig', [
+            
+        ]);
+    }
+
+    public function maps()
+    {
+        return $this->render('@MaterialDashboard/example/maps.html.twig', [
+            
+        ]);
+    }
+
+    public function notifications()
+    {
+        return $this->render('@MaterialDashboard/example/notifications.html.twig', [
+            
+        ]);
+    }
+
+    public function rtl()
+    {
+        return $this->render('@MaterialDashboard/example/rtl.html.twig', [
+            
+        ]);
+    }
+
+    public function upgrade()
+    {
+        return $this->render('@MaterialDashboard/example/upgrade.html.twig', [
+            
+        ]);
+    }
+
+    public function externalCreativeTim() 
+    {
+        return $this->redirect('https://www.creative-tim.com/');
+    }
+
+    public function externalAboutUs() 
+    {
+        return $this->redirect('https://creative-tim.com/presentation');
+    }
+
+    public function externalBlog() 
+    {
+        return $this->redirect('http://blog.creative-tim.com/');
+    }
+    
+    public function externalLicenses() 
+    {
+        return $this->redirect('https://www.creative-tim.com/license');
+    }
 }

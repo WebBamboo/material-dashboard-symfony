@@ -28,13 +28,21 @@ class MaterialDashboardExtension extends AbstractExtension
             new TwigFunction('color', [$this, 'color']),
             new TwigFunction('menuHeader', [$this, 'menuHeader']),
             new TwigFunction('menuItems', [$this, 'menuItems']),
+            new TwigFunction('landingMenuItems', [$this, 'landingMenuItems']),
+            new TwigFunction('landingMenuBottomItems', [$this, 'landingMenuBottomItems']),
             new TwigFunction('notificationsEnabled', [$this, 'notificationsEnabled']),
             new TwigFunction('userMenuItems', [$this, 'userMenuItems']),
             new TwigFunction('getItemRoute', [$this, 'getItemRoute']),
             new TwigFunction('materialGraph', [$this, 'materialGraph'], ['is_safe' => ['html']]),
-            new TwigFunction('tableRender', [$this, 'tableRender'], ['is_safe' => ['html']])
+            new TwigFunction('tableRender', [$this, 'tableRender'], ['is_safe' => ['html']]),
+            new TwigFunction('exampleMenu', [$this, 'exampleMenu'])
         ];
     }
+    public function exampleMenu()
+    {
+        return $this->config->example_menu;
+    }
+
     public function tableRender(TableHelper $tableHelper)
     {
         return $tableHelper->render();
@@ -63,6 +71,16 @@ class MaterialDashboardExtension extends AbstractExtension
     {
         return $this->config->menu;
     }
+    
+    public function landingMenuItems()
+    {
+        return $this->config->landing_top_menu;
+    }
+
+    public function landingMenuBottomItems()
+    {
+        return $this->config->landing_bottom_menu;
+    }
 
     public function userMenuItems()
     {
@@ -79,7 +97,10 @@ class MaterialDashboardExtension extends AbstractExtension
         $parameters = [];
         foreach($item['parameters'] as $parameterArray)
         {
-            $parameters[$parameterArray['name']] = $parameterArray['value'];
+            if(isset($parameterArray['name']) && isset($parameterArray['value']))
+            {
+                $parameters[$parameterArray['name']] = $parameterArray['value'];
+            }
         }
         return $this->router->generate($path, $parameters);
     }

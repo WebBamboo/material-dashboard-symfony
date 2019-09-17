@@ -38,7 +38,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
             {% for path, item in menuItems() %}
-            <li class="nav-item active  ">
+            <li class="nav-item{% if app.request.attributes.get('_route') == path %} active{% endif %}">
                 <a class="nav-link" href="{{ getItemRoute(path, item) }}">
                 <i class="material-icons">{{ item.icon }}</i>
                 <p>{{ item.label }}</p>
@@ -46,7 +46,7 @@
             </li>
             {% endfor %}
             {% if exampleMenu() %}
-              <li class="nav-item  active">
+              <li class="nav-item">
                 <a class="nav-link collapsed" data-toggle="collapse" href="#symfonyExample" aria-expanded="false">
                   <i><img style="width:25px" src="{{ asset('/bundles/materialdashboard/img/symfony.png') }}"></i>
                   <p>Symfony Examples
@@ -55,6 +55,7 @@
                 </a>
                 <div class="collapse" id="symfonyExample" style="">
                   <ul class="nav">
+                    <!--
                     <li class="nav-item active">
                       <a class="nav-link" href="http://127.0.0.1:8000/profile">
                         <span class="sidebar-mini"> UP </span>
@@ -67,35 +68,36 @@
                         <span class="sidebar-normal"> User Management </span>
                       </a>
                     </li>
+                    -->
                   </ul>
                 </div>
               </li>
 
-              <li class="nav-item">
+              <li class="nav-item{% if app.request.attributes.get('_route') == 'example_table_list' %} active{% endif %}">
                 <a class="nav-link" href="{{ path('example_table_list') }}">
                   <i class="material-icons">content_paste</i>
                     <p>Table List</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item{% if app.request.attributes.get('_route') == 'example_typography' %} active{% endif %}">
                 <a class="nav-link" href="{{ path("example_typography") }}">
                   <i class="material-icons">library_books</i>
                     <p>Typography</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item{% if app.request.attributes.get('_route') == 'example_icons' %} active{% endif %}">
                 <a class="nav-link" href="{{ path("example_icons") }}">
                   <i class="material-icons">bubble_chart</i>
                   <p>Icons</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item{% if app.request.attributes.get('_route') == 'example_maps' %} active{% endif %}">
                 <a class="nav-link" href="{{ path("example_maps") }}">
                   <i class="material-icons">location_ons</i>
                     <p>Maps</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item{% if app.request.attributes.get('_route') == 'example_notifications' %} active{% endif %}">
                 <a class="nav-link" href="{{ path("example_notifications") }}">
                   <i class="material-icons">notifications</i>
                   <p>Notifications</p>

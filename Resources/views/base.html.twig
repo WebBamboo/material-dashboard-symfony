@@ -46,29 +46,33 @@
             </li>
             {% endfor %}
             {% if exampleMenu() %}
-              <li class="nav-item">
-                <a class="nav-link collapsed" data-toggle="collapse" href="#symfonyExample" aria-expanded="false">
+              {% if is_granted('ROLE_ADMIN') %}
+              {% if app.request.attributes.get('_route') == 'user_index' or app.request.attributes.get('_route') == 'user_new' or app.request.attributes.get('_route') == 'user_show' or app.request.attributes.get('_route') == 'user_edit' %}
+                {% set exampleMenuCollapsed = true %}
+              {% else %}
+                {% set exampleMenuCollapsed = false %}
+              {% endif %}
+              <li class="nav-item{{ exampleMenuCollapsed ? ' active' : ''}}">
+                <a class="nav-link{{ exampleMenuCollapsed ? '' : ' collapsed'}}" data-toggle="collapse" href="#symfonyExample" aria-expanded="{{ exampleMenuCollapsed ? 'true' : 'false'}}">
                   <i><img style="width:25px" src="{{ asset('/bundles/materialdashboard/img/symfony.png') }}"></i>
                   <p>Symfony Examples
                     <b class="caret"></b>
                   </p>
                 </a>
-                <div class="collapse" id="symfonyExample" style="">
+                <div class="{{ exampleMenuCollapsed ? 'collapse show' : 'collapse'}}" id="symfonyExample" style="">
                   <ul class="nav">
-                    <!--
-                    <li class="nav-item active">
-                      <a class="nav-link" href="http://127.0.0.1:8000/profile">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ path('user_profile') }}">
                         <span class="sidebar-mini"> UP </span>
                         <span class="sidebar-normal">User profile </span>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="http://127.0.0.1:8000/user">
+                    <li class="nav-item {% if app.request.attributes.get('_route') == 'user_index' or app.request.attributes.get('_route') == 'user_new' or app.request.attributes.get('_route') == 'user_show' or app.request.attributes.get('_route') == 'user_edit' %} active{% endif %}">
+                      <a class="nav-link" href="{{ path('user_index') }}">
                         <span class="sidebar-mini"> UM </span>
                         <span class="sidebar-normal"> User Management </span>
                       </a>
                     </li>
-                    -->
                   </ul>
                 </div>
               </li>
@@ -109,6 +113,7 @@
                   <p>Upgrade to PRO</p>
                 </a>
               </li>
+              {% endif %}
             {% endif %}
         </ul>
       </div>

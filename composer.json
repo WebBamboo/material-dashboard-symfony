@@ -11,14 +11,14 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "symfony/asset": "~4.2",
-        "symfony/twig-bundle": "~4.2",
+        "symfony/asset": "*",
+        "symfony/twig-bundle": "*",
         "symfony/orm-pack": "*",
         "symfony/maker-bundle": "^1.12"
     },
     "require-dev": {
         "symfony/profiler-pack": "^1.0",
-        "symfony/web-server-bundle": "4.3.*"
+        "symfony/web-server-bundle": "*"
     },
     "autoload": {
         "psr-4": {

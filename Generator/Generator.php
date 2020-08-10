@@ -53,7 +53,7 @@ class Generator extends OriginalGenerator
      * @param string $templateName
      * @param array  $variables
      */
-    public function generateFile(string $targetPath, string $templateName, array $variables)
+    public function generateFile(string $targetPath, string $templateName, array $variables=[])
     {
         $variables = array_merge($variables, [
             'helper' => $this->twigHelper,

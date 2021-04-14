@@ -12,7 +12,7 @@
 namespace Webbamboo\MaterialDashboard\Maker;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use Doctrine\Common\Inflector\Inflector;
+use Doctrine\Inflector\InflectorFactory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
 use Symfony\Bundle\MakerBundle\DependencyBuilder;
@@ -57,6 +57,11 @@ final class MakeCrud extends AbstractMaker
         return 'material-dashboard:make:crud';
     }
 
+    public static function getCommandDescription(): string
+    {
+        return 'material-dashboard:make:crud';
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -89,6 +94,7 @@ final class MakeCrud extends AbstractMaker
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
+        $inflector = InflectorFactory::create()->build();
         $entityClassDetails = $this->myGenerator->createClassNameDetails(
             Validator::entityExists($input->getArgument('entity-class'), $this->doctrineHelper->getEntitiesForAutocomplete()),
             'Entity\\'
@@ -106,7 +112,7 @@ final class MakeCrud extends AbstractMaker
             $repositoryVars = [
                 'repository_full_class_name' => $repositoryClassDetails->getFullName(),
                 'repository_class_name' => $repositoryClassDetails->getShortName(),
-                'repository_var' => lcfirst(Inflector::singularize($repositoryClassDetails->getShortName())),
+                'repository_var' => lcfirst( $inflector->singularize($repositoryClassDetails->getShortName())),
             ];
         }
 
@@ -126,8 +132,8 @@ final class MakeCrud extends AbstractMaker
             ++$iter;
         } while (class_exists($formClassDetails->getFullName()));
 
-        $entityVarPlural = lcfirst(Inflector::pluralize($entityClassDetails->getShortName()));
-        $entityVarSingular = lcfirst(Inflector::singularize($entityClassDetails->getShortName()));
+        $entityVarPlural = lcfirst( $inflector->pluralize($entityClassDetails->getShortName()));
+        $entityVarSingular = lcfirst( $inflector->singularize($entityClassDetails->getShortName()));
 
         $entityTwigVarPlural = Str::asTwigVariable($entityVarPlural);
         $entityTwigVarSingular = Str::asTwigVariable($entityVarSingular);

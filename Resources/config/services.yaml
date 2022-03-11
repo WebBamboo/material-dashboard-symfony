@@ -28,6 +28,12 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+    Webbamboo\MaterialDashboard\Command\MaterialDashboardTestNotificationCommand:
+        tags:
+            - { name: 'console.command', command: 'material-dashboard:test-notification' }
+        arguments:
+            - "material-dashboard:test-notification"
+
     Webbamboo\MaterialDashboard\:
         resource: '../../*'
-        exclude: '../../{DependencyInjection,Entity,Migrations,Maker,Tests,Kernel.php}'
+        exclude: '../../{DependencyInjection,Command,Entity,Migrations,Maker,Tests,Kernel.php}'

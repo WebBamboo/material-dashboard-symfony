@@ -55,7 +55,9 @@ class MaterialDashboardTestNotificationCommand extends Command
         $notification->setDescription("Dummy data notification");
         $this->em->persist($notification);
         $this->em->flush();
+
+        return Command::SUCCESS;
     }
 
-    return Command::SUCCESS;
+    
 }

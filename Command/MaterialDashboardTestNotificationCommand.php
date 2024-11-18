@@ -32,7 +32,7 @@ class MaterialDashboardTestNotificationCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $users = $this->em->getRepository(User::class)->findAll();
         $userChoices = [];
@@ -56,4 +56,6 @@ class MaterialDashboardTestNotificationCommand extends Command
         $this->em->persist($notification);
         $this->em->flush();
     }
+
+    return Command::SUCCESS;
 }
